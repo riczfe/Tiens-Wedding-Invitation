@@ -87,6 +87,12 @@
         </div>
     </div>
 
+    <div id="mongolian-troll" class="hidden">
+        <h2>Tiên thích Mông Cổ lắm rùi phải hong nè?! 🤭</h2>
+        <p>Vừa... Mông... lại còn... Cổ... Úiiii dàaaaa! Quá phong cách luôn đó! 😝</p>
+        <button onclick="redirectToFun()">Đúng rồi, chuẩn gu luôn! 🤩</button>
+    </div>
+
     <div id="final-troll" class="hidden">
         <h2>Bạn có đi với ai không?</h2>
         <button onclick="yesOption()">Có</button>
@@ -97,6 +103,7 @@
         const vietnameseBtn = document.getElementById('vietnamese');
         const mongolianBtn = document.getElementById('mongolian');
         const trollMessage = document.getElementById('troll-message');
+        const mongolianTroll = document.getElementById('mongolian-troll');
         const finalTroll = document.getElementById('final-troll');
 
         vietnameseBtn.addEventListener('click', () => {
@@ -105,13 +112,18 @@
         });
 
         mongolianBtn.addEventListener('click', () => {
-            alert("Hay quá, Tiên chọn đúng đỉnh cao văn hóa rồi! 🤩");
-            window.location.href = "https://www.youtube.com/watch?v=k4EoQmeQhMc"; // Redirect to a fun Mongolian video
+            document.querySelector('.options').classList.add('hidden');
+            mongolianTroll.classList.remove('hidden');
         });
 
         function continueTroll() {
             trollMessage.classList.add('hidden');
             finalTroll.classList.remove('hidden');
+        }
+
+        function redirectToFun() {
+            alert("Quá chuẩn gu rồi Tiên ơi! Mông Cổ forever! 😂");
+            window.location.href = "https://www.youtube.com/watch?v=k4EoQmeQhMc"; // Redirect to a fun Mongolian video
         }
 
         function yesOption() {
