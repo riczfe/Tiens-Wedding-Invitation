@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Troll - Dành cho Tiên 🤭</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #fdfbfb, #ebedee);
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #ff6f61;
+            text-shadow: 2px 2px #ff9a8b;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h2 {
+            color: #f25f5c;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        p {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 15px;
+            background: #ff6b81;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.8);
+        }
+        .hidden {
+            display: none;
+        }
+        .troll-box {
+            background: rgba(255, 107, 129, 0.1);
+            border: 2px dashed #ff6f61;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            animation: shake 1.2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chọn ngôn ngữ nào, Tiên ơi!</h1>
+    <div class="options">
+        <button id="vietnamese">Tiếng Việt</button>
+        <button id="mongolian">Tiếng Mông Cổ</button>
+    </div>
+
+    <div id="troll-message" class="hidden">
+        <div class="troll-box">
+            <h2>Ủa Tiên, ghét Mông Cổ hả? 🤔</h2>
+            <p>Thật á? Hay Tiên sợ Thành Cát Tư Hãn hồi sinh thống trị lại?! 😜</p>
+            <p>Thôi đừng sợ, Mông Cổ chỉ hát cổ họng để vui vẻ thôi mà! 🎵</p>
+            <button onclick="continueTroll()">OK, tiếp đi!</button>
+        </div>
+    </div>
+
+    <div id="final-troll" class="hidden">
+        <h2>Bạn có đi với ai không?</h2>
+        <button onclick="yesOption()">Có</button>
+        <button onclick="yesOption()">Cũng có</button>
+    </div>
+
+    <script>
+        const vietnameseBtn = document.getElementById('vietnamese');
+        const mongolianBtn = document.getElementById('mongolian');
+        const trollMessage = document.getElementById('troll-message');
+        const finalTroll = document.getElementById('final-troll');
+
+        vietnameseBtn.addEventListener('click', () => {
+            document.querySelector('.options').classList.add('hidden');
+            trollMessage.classList.remove('hidden');
+        });
+
+        mongolianBtn.addEventListener('click', () => {
+            alert("Hay quá, Tiên chọn đúng đỉnh cao văn hóa rồi! 🤩");
+            window.location.href = "https://www.youtube.com/watch?v=k4EoQmeQhMc"; // Redirect to a fun Mongolian video
+        });
+
+        function continueTroll() {
+            trollMessage.classList.add('hidden');
+            finalTroll.classList.remove('hidden');
+        }
+
+        function yesOption() {
+            alert("Haha, chỉ có 'Có' thôi nha! 😂");
+            setTimeout(() => {
+                alert("Ủa trời, gì vậy Tiên?! 🤪");
+            }, 500);
+        }
+    </script>
+</body>
+</html>
