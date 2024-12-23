@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Troll - Dành cho Tiên 🤭</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #fdfbfb, #ebedee);
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: #ff6f61;
+            text-shadow: 2px 2px #ff9a8b;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h2 {
+            color: #f25f5c;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+        p {
+            font-size: 1.2em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 15px;
+            background: #ff6b81;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 129, 0.8);
+        }
+        .hidden {
+            display: none;
+        }
+        .top-btn {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .bottom-btn {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .options {
+            margin-top: 100px; /* Adds space between buttons */
+        }
+        #vietnamese {
+            position: absolute;
+            top: 40%;
+            left: 35%; /* Adjust position of the Tiếng Việt button */
+            transform: translate(-50%, -50%);
+        }
+        #mongolian {
+            position: absolute;
+            top: 40%;
+            left: 65%; /* Adjust position of the Mông Cổ button */
+            transform: translate(-50%, -50%);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chọn ngôn ngữ nào, Tiên ơi!</h1>
+    <div class="options">
+        <button id="vietnamese">Tiếng Việt</button>
+        <button id="mongolian">Tiếng Mông Cổ</button>
+    </div>
+
+    <div id="mongolian-troll" class="hidden">
+        <h2>Tiên thích Mông Cổ lắm nè! 😍</h2>
+        <p>Vừa... Mông... lại còn... Cổ... phong cách ghê gớm luôn nha! 😂</p>
+        <button id="proceed">Chơi tiếp! 🤪</button>
+    </div>
+
+    <div id="question-party" class="hidden">
+        <h2>Tiên có định dẫn ai đi dự tiệc hông? 🤭</h2>
+        <button id="option1" class="top-btn">Có</button>
+        <button id="option2" class="bottom-btn">2k6</button>
+    </div>
+
+    <div id="question-horent" class="hidden">
+        <h2>Tiên có định đi với Thằng Lằn Horent hông? 🦎</h2>
+        <button id="yes" class="top-btn">No</button>
+        <button id="horent" class="bottom-btn">Nhớ nhớ Horent nhiều lắm nhớ làm Tiên muốn xiuuuuuu</button>
+    </div>
+
+    <script>
+        const vietnameseBtn = document.getElementById('vietnamese');
+        const mongolianBtn = document.getElementById('mongolian');
+        const mongolianTroll = document.getElementById('mongolian-troll');
+        const proceedBtn = document.getElementById('proceed');
+        const questionParty = document.getElementById('question-party');
+        const questionHorent = document.getElementById('question-horent');
+        const option1 = document.getElementById('option1');
+        const option2 = document.getElementById('option2');
+        const yesBtn = document.getElementById('yes');
+        const horentBtn = document.getElementById('horent');
+
+        let option1Clicked = false;
+        let yesClicked = false;
+
+        // Force Tiên to click Mông Cổ by making Tiếng Việt fly away
+        vietnameseBtn.addEventListener('mouseover', () => {
+            vietnameseBtn.style.top = Math.random() * 80 + "vh";
+            vietnameseBtn.style.left = Math.random() * 80 + "vw";
+        });
+
+        vietnameseBtn.addEventListener('click', () => {
+            alert("Ủa sao chọn Tiếng Việt vậy? Hỏng được đâu! 😜");
+        });
+
+        mongolianBtn.addEventListener('click', () => {
+            document.querySelector('.options').classList.add('hidden');
+            mongolianTroll.classList.remove('hidden');
+        });
+
+        // Proceed to next troll
+        proceedBtn.addEventListener('click', () => {
+            mongolianTroll.classList.add('hidden');
+            questionParty.classList.remove('hidden');
+        });
+
+        // Party question logic
+        option1.addEventListener('click', () => {
+            if (!option1Clicked) {
+                option1Clicked = true;
+                alert("Ủa ai vậy? Hỏng được nha! Chọn 2k6 đi! 😂");
+            }
+            option1.style.position = "absolute";
+            option1.style.top = Math.random() * 80 + "vh";
+            option1.style.left = Math.random() * 80 + "vw";
+        });
+
+        option2.addEventListener('click', () => {
+            questionParty.classList.add('hidden');
+            questionHorent.classList.remove('hidden');
+        });
+
+        // Horent question logic
+        yesBtn.addEventListener('click', () => {
+            if (!yesClicked) {
+                yesClicked = true;
+                alert("Haha! Đi với ai cũng được nhưng hỏng được chọn No nha! 🤪");
+            }
+            yesBtn.style.position = "absolute";
+            yesBtn.style.top = Math.random() * 80 + "vh";
+            yesBtn.style.left = Math.random() * 80 + "vw";
+        });
+
+        horentBtn.addEventListener('click', () => {
+            alert("Đỉnh luôn! Nhớ nhớ Horent nhiều lắm nha! 😂");
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>

@@ -50,9 +50,6 @@
         }
         .float-button {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -74,13 +71,32 @@
     <div id="mongolian-troll" class="hidden">
         <h2>Tiên thích Mông Cổ lắm nè! 😍</h2>
         <p>Vừa... Mông... lại còn... Cổ... phong cách ghê gớm luôn nha! 😂</p>
-        <button onclick="proceed()">Chơi tiếp! 🤪</button>
+        <button id="proceed">Chơi tiếp! 🤪</button>
+    </div>
+
+    <div id="question-party" class="hidden">
+        <h2>Tiên có định dẫn ai đi dự tiệc hông? 🤭</h2>
+        <button id="option1" class="float-button">Có</button>
+        <button id="option2">2k6</button>
+    </div>
+
+    <div id="question-horent" class="hidden">
+        <h2>Tiên có định đi với Thằng Lằn Horent hông? 🦎</h2>
+        <button id="yes" class="float-button">No</button>
+        <button id="horent">Nhớ nhớ Horent nhiều lắm nhớ làm Tiên muốn xiuuuuuu</button>
     </div>
 
     <script>
         const vietnameseBtn = document.getElementById('vietnamese');
         const mongolianBtn = document.getElementById('mongolian');
         const mongolianTroll = document.getElementById('mongolian-troll');
+        const proceedBtn = document.getElementById('proceed');
+        const questionParty = document.getElementById('question-party');
+        const questionHorent = document.getElementById('question-horent');
+        const option1 = document.getElementById('option1');
+        const option2 = document.getElementById('option2');
+        const yesBtn = document.getElementById('yes');
+        const horentBtn = document.getElementById('horent');
 
         // Force Tiên to click Mông Cổ by making Tiếng Việt fly away
         vietnameseBtn.addEventListener('mouseover', () => {
@@ -97,10 +113,41 @@
             mongolianTroll.classList.remove('hidden');
         });
 
-        function proceed() {
-            alert("Đỉnh quá! Tiên đúng là có gu! 😂");
+        // Proceed to next troll
+        proceedBtn.addEventListener('click', () => {
+            mongolianTroll.classList.add('hidden');
+            questionParty.classList.remove('hidden');
+        });
+
+        // Party question logic
+        option1.addEventListener('mouseover', () => {
+            option1.style.top = Math.random() * 80 + "vh";
+            option1.style.left = Math.random() * 80 + "vw";
+        });
+
+        option1.addEventListener('click', () => {
+            alert("Ủa ai vậy? Hỏng được nha! Chọn 2k6 đi! 😂");
+        });
+
+        option2.addEventListener('click', () => {
+            questionParty.classList.add('hidden');
+            questionHorent.classList.remove('hidden');
+        });
+
+        // Horent question logic
+        yesBtn.addEventListener('mouseover', () => {
+            yesBtn.style.top = Math.random() * 80 + "vh";
+            yesBtn.style.left = Math.random() * 80 + "vw";
+        });
+
+        yesBtn.addEventListener('click', () => {
+            alert("Haha! Đi với ai cũng được nhưng hỏng được chọn No nha! 🤪");
+        });
+
+        horentBtn.addEventListener('click', () => {
+            alert("Đỉnh luôn! Nhớ nhớ Horent nhiều lắm nha! 😂");
             window.location.href = "index.html";
-        }
+        });
     </script>
 </body>
 </html>
