@@ -48,13 +48,11 @@
         .hidden {
             display: none;
         }
-        .troll-box {
-            background: rgba(255, 107, 129, 0.1);
-            border: 2px dashed #ff6f61;
-            padding: 20px;
-            border-radius: 10px;
-            display: inline-block;
-            animation: shake 1.2s infinite;
+        .float-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -64,51 +62,34 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
     </style>
 </head>
 <body>
     <h1>Chọn ngôn ngữ nào, Tiên ơi!</h1>
     <div class="options">
-        <button id="vietnamese">Tiếng Việt</button>
+        <button id="vietnamese" class="float-button">Tiếng Việt</button>
         <button id="mongolian">Tiếng Mông Cổ</button>
     </div>
 
-    <div id="troll-message" class="hidden">
-        <div class="troll-box">
-            <h2>Ủa, sao Tiên không thích người Mông Cổ vậy? 🤔</h2>
-            <p>Người Mông Cổ vừa vạm vừa vỡ mà Tiên hỏng thích, buồn ghê á! 😜</p>
-            <p>Thôi gả Tiên cho trai Mông Cổ là hợp lý lắm. Vừa được chăn dắt, vừa được nghe lời nữa chứ. Haha! Jokes này đi xa quá rồi! 🤣</p>
-            <button onclick="continueTroll()">OK, tiếp đi!</button>
-        </div>
-    </div>
-
     <div id="mongolian-troll" class="hidden">
-        <h2>Tiên thích Mông Cổ lắm rùi phải hong nè?! 🤭</h2>
-        <p>Vừa... Mông... lại còn... Cổ... Úiiii dàaaaa! Quá phong cách luôn đó! 😝</p>
-        <button onclick="finalStep()">Đúng rồi, chuẩn gu luôn! 🤩</button>
-    </div>
-
-    <div id="final-troll" class="hidden">
-        <h2>Em có đi với ai không?</h2>
-        <button onclick="yesOption()">Có</button>
-        <button onclick="yesOption()">Cũng có</button>
+        <h2>Tiên thích Mông Cổ lắm nè! 😍</h2>
+        <p>Vừa... Mông... lại còn... Cổ... phong cách ghê gớm luôn nha! 😂</p>
+        <button onclick="proceed()">Chơi tiếp! 🤪</button>
     </div>
 
     <script>
         const vietnameseBtn = document.getElementById('vietnamese');
         const mongolianBtn = document.getElementById('mongolian');
-        const trollMessage = document.getElementById('troll-message');
         const mongolianTroll = document.getElementById('mongolian-troll');
-        const finalTroll = document.getElementById('final-troll');
+
+        // Force Tiên to click Mông Cổ by making Tiếng Việt fly away
+        vietnameseBtn.addEventListener('mouseover', () => {
+            vietnameseBtn.style.top = Math.random() * 80 + "vh";
+            vietnameseBtn.style.left = Math.random() * 80 + "vw";
+        });
 
         vietnameseBtn.addEventListener('click', () => {
-            document.querySelector('.options').classList.add('hidden');
-            trollMessage.classList.remove('hidden');
+            alert("Ủa sao chọn Tiếng Việt vậy? Hỏng được đâu! 😜");
         });
 
         mongolianBtn.addEventListener('click', () => {
@@ -116,21 +97,9 @@
             mongolianTroll.classList.remove('hidden');
         });
 
-        function continueTroll() {
-            trollMessage.classList.add('hidden');
-            finalTroll.classList.remove('hidden');
-        }
-
-        function finalStep() {
-            mongolianTroll.classList.add('hidden');
-            finalTroll.classList.remove('hidden');
-        }
-
-        function yesOption() {
-            alert("Haha, chỉ có 'Có' thôi nha! 😂");
-            setTimeout(() => {
-                alert("Ủa trời, gì vậy Tiên?! 🤪");
-            }, 500);
+        function proceed() {
+            alert("Đỉnh quá! Tiên đúng là có gu! 😂");
+            window.location.href = "index.html";
         }
     </script>
 </body>
